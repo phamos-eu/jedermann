@@ -227,19 +227,16 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+doctype_js = {
+    "Sales Invoice": "public/js/sales_invoice.js"
+}
+
 
 fixtures = [
     {"dt": "Print Format", "filters": [
         [
             "name", "in", [
                 'Sales Invoice 1.1'
-            ]
-        ]
-    ]},
-     {"dt": "Client Script", "filters": [
-        [
-            "name", "in", [
-                'Delivery note Validation', 'Set Invoice Set'
             ]
         ]
     ]},
