@@ -231,6 +231,11 @@ doctype_js = {
     "Sales Invoice": "public/js/sales_invoice.js"
 }
 
+doc_events = {
+    "Sales Invoice": {
+        "validate": "jedermann.events.sales_invoice.set_validate_dn_data"
+    }
+}
 
 fixtures = [
     {"dt": "Print Format", "filters": [
