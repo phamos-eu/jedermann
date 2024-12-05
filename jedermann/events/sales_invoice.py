@@ -16,9 +16,7 @@ def set_validate_dn_data(doc, method):
         doc.custom_delivery_note = ""
         doc.custom_delivery_date = ""
 
-        if len(delivery_notes) == 1:
-            formatted_notes = delivery_notes[0]
-        elif len(delivery_notes) == 2:
+        if len(delivery_notes) == 2:
             formatted_notes = " and ".join(delivery_notes)
         elif len(delivery_notes) > 2:
             last_delivery_note = delivery_notes[-1]
