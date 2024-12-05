@@ -22,14 +22,6 @@ override_doctype_class = {
 
 fixtures = [
     {
-        "dt": "Print Format", "filters": [
-        [
-            "name", "in", [
-                'Sales Invoice 1.1'
-            ]
-        ]
-    ]},
-    {
         "dt": "Letter Head", "filters": [
         [
             "name", "in", [
