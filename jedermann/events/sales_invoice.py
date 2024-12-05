@@ -3,7 +3,6 @@ from frappe import _
 
 def set_validate_dn_data(doc, method):
     delivery_notes = list(set([item.delivery_note for item in doc.items if item.delivery_note]))
-    delivery_notes = [frappe.get_desk_link("Delivery Note", item.delivery_note) for item in doc.items if item.delivery_note]
 
     if len(delivery_notes) == 1:
         delivery_note = delivery_notes[0]
@@ -13,6 +12,7 @@ def set_validate_dn_data(doc, method):
         if posting_date:
             doc.custom_delivery_date = posting_date
     elif len(delivery_notes) > 1:
+        delivery_notes = [frappe.get_desk_link("Delivery Note", item.delivery_note) for item in doc.items if item.delivery_note]
         doc.custom_delivery_note = ""
         doc.custom_delivery_date = ""
 
