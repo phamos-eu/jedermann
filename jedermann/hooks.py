@@ -238,30 +238,37 @@ doc_events = {
 }
 
 fixtures = [
-    {"dt": "Print Format", "filters": [
+    {
+        "dt": "Print Format", "filters": [
         [
             "name", "in", [
                 'Sales Invoice 1.1'
             ]
         ]
     ]},
-    {"dt": "Letter Head", "filters": [
+    {
+        "dt": "Letter Head", "filters": [
         [
             "name", "in", [
                 "Standard 1.1"
             ]
         ]
     ]},
-    {"dt": "Role", "filters": [
+    {
+        "dt": "Role", "filters": [
         [
             "name", "in", [
                 "0 Geschäftsleitung"
             ]
         ]
     ]},
-    {"dt": "Custom DocPerm", "filters": [
+    {
+        "dt": "Custom DocPerm", "filters": [
         [
             "role", "=", "0 Geschäftsleitung"
         ]
-    ]}
+    ]},
+    {
+        "dt": "Print Settings"
+    }
 ]
