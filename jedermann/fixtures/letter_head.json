@@ -1,0 +1,25 @@
+[
+ {
+  "align": "Left",
+  "content": "",
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Letter Head",
+  "footer": "<table style=\"width: 100%; color: #555; border-collapse: collapse;\">\n    <tbody>\n        <tr>\n            <td style=\"width: 24%; vertical-align: top; font-size: 2.6mm ;\">\n                <p style=\"margin-bottom:5px !important; font-weight: 600; font-size: 2.8mm; letter-spacing: 0.26mm;\"><b>Jedermann AG</b></p>\n                <span style=\"font-size: 2.7mm; letter-spacing: 0.25mm;\">Hauptstraße 33</span><br>\n                <span style=\"font-size: 2.7mm; letter-spacing: 0.25mm;\">D-56291 Hausbay</span><br>\n                <span style=\"font-size: 2.7mm; letter-spacing: 0.25mm;\">Telefon +49 6746 208</span><br>\n                <span style=\"font-size: 2.7mm; letter-spacing: 0.25mm;\">info@jedermann-ag.de</span><br>\n            </td>\n            <td style=\"width: 22%; vertical-align: top; font-size: 0.77em ;\">\n                <p style=\"margin-bottom:5px !important; font-weight: 600; font-size: 2.8mm; letter-spacing: 0.26mm;\"><b>Vorstand</b></p>\n                <span style=\"font-size: 2.7mm; letter-spacing: 0.25mm;\">Frank Jedermann</span><br>\n                <span style=\"font-size: 2.7mm; letter-spacing: 0.25mm;\">Jens Jedermann</span><br>\n                <span style=\"font-size: 2.7mm; letter-spacing: 0.25mm;\">Kristin Jedermann-Kunz</span><br>\n                <span style=\"font-size: 2.7mm; letter-spacing: 0.25mm;\">Michael Jedermann</span><br>\n            </td>\n            <td style=\"width: 27%; vertical-align: top; font-size: 0.77em ;\">\n                <p style=\"margin-bottom:5px !important; font-weight: 600; font-size: 2.8mm; letter-spacing: 0.26mm;\"><b>Amtsgericht Koblenz</b></p>\n                <span style=\"font-size: 2.7mm; letter-spacing: 0.25mm;\">HRB 29362</span><br>\n                <p style=\"font-size: 2.7mm; letter-spacing: 0.25mm; margin-bottom:5px !important;\">USt-Nr. DE 170 986 354</p>\n                <p style=\"margin-bottom:5px !important; font-weight: 600; font-size: 2.8mm; letter-spacing: 0.26mm;\"><b>Aufsichtsratsvorsitzender</b></p><p></p>\n                <span style=\"font-size: 2.7mm; letter-spacing: 0.25mm;\">Prof. Dr. Günter Penné</span><br>\n            </td>\n            <td style=\"width: 27%; vertical-align: top; font-size: 0.77em ;\">\n                <p style=\"margin-bottom:5px !important; font-weight: 600; font-size: 2.8mm; letter-spacing: 0.26mm;\"><b>Bankverbindung</b></p>\n                <span style=\"font-size: 2.7mm; letter-spacing: 0.25mm;\">Volksbank Rheinböllen eG</span><br>\n                <span style=\"font-size: 2.7mm; letter-spacing: 0.25mm;\">BIC: GENODED1RBO</span><br>\n                <span style=\"font-size: 2.7mm; letter-spacing: 0.25mm;\">IBAN: DE04 5606 2227 0001 0013 20</span><br>\n\n            </td>\n        </tr>\n\n    </tbody>\n</table>",
+  "footer_align": "Left",
+  "footer_image": null,
+  "footer_image_height": 0.0,
+  "footer_image_width": 0.0,
+  "footer_script": null,
+  "footer_source": "HTML",
+  "header_script": null,
+  "image": "/files/Jedermann_Logo_mUt_NEU_resized.png",
+  "image_height": 0.0,
+  "image_width": 0.0,
+  "is_default": 1,
+  "letter_head_name": "Standard 1.1",
+  "modified": "2024-12-05 11:27:32.711398",
+  "name": "Standard 1.1",
+  "source": "HTML"
+ }
+]
