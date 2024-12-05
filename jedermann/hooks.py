@@ -227,3 +227,39 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+
+fixtures = [
+    {"dt": "Print Format", "filters": [
+        [
+            "name", "in", [
+                'Sales Invoice 1.1'
+            ]
+        ]
+    ]},
+     {"dt": "Client Script", "filters": [
+        [
+            "name", "in", [
+                'Delivery note Validation', 'Set Invoice Set'
+            ]
+        ]
+    ]},
+    {"dt": "Letter Head", "filters": [
+        [
+            "name", "in", [
+                "Standard 1.1"
+            ]
+        ]
+    ]},
+    {"dt": "Role", "filters": [
+        [
+            "name", "in", [
+                "0 Geschäftsleitung"
+            ]
+        ]
+    ]},
+    {"dt": "Custom DocPerm", "filters": [
+        [
+            "role", "=", "0 Geschäftsleitung"
+        ]
+    ]}
+]
