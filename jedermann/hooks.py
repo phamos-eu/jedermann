@@ -16,15 +16,11 @@ doc_events = {
     }
 }
 
+override_doctype_class = {
+	"Sales Order": "jedermann.events.sales_order.CustomSalesOrder"
+}
+
 fixtures = [
-    {
-        "dt": "Print Format", "filters": [
-        [
-            "name", "in", [
-                'Sales Invoice 1.1'
-            ]
-        ]
-    ]},
     {
         "dt": "Letter Head", "filters": [
         [
