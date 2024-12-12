@@ -4,7 +4,7 @@ app_publisher = "Phamos GmbH"
 app_description = "Customisation for Jedermann"
 app_email = "support@phamos.eu"
 app_license = "mit"
-required_apps = ["erpenext"]
+required_apps = ["erpnext"]
 
 doctype_js = {
     "Sales Invoice": "public/js/sales_invoice.js"
