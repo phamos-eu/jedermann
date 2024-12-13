@@ -47,3 +47,9 @@ fixtures = [
         "dt": "Print Settings"
     }
 ]
+
+jinja = {
+    "methods": [
+        "jedermann.events.jinja_functions.sort_items",
+    ]
+}
