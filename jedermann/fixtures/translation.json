@@ -1,0 +1,41 @@
+[
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "de",
+  "modified": "2024-12-13 15:55:24.506370",
+  "name": "lmq4qqc4dr",
+  "source_text": "Sorting Option",
+  "translated_text": "Sortieroptionen"
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "de",
+  "modified": "2024-12-13 15:56:03.832645",
+  "name": "lqc9uhah5s",
+  "source_text": "Sort by Sales Order",
+  "translated_text": "Nach Auftrag sortiert"
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "de",
+  "modified": "2024-12-13 15:55:39.771264",
+  "name": "lqs4ppbak2",
+  "source_text": "Sort by Item Code",
+  "translated_text": "Nacht Artikelnummer sortiert"
+ }
+]

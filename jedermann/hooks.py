@@ -45,5 +45,24 @@ fixtures = [
     ]},
     {
         "dt": "Print Settings"
-    }
+    },
+    {
+        "dt": "Translation", "filters": [
+        [
+            "language", "=", "de"
+        ],
+        [
+            "source_text", "in", [
+                "Sort by Sales Order",
+                "Sort by Item Code",
+                "Sorting Option"
+            ]
+        ]
+    ]}
 ]
+
+jinja = {
+    "methods": [
+        "jedermann.events.jinja_functions.sort_items",
+    ]
+}
