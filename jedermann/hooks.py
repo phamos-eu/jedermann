@@ -64,5 +64,6 @@ fixtures = [
 jinja = {
     "methods": [
         "jedermann.events.jinja_functions.sort_items",
+        "jedermann.events.jinja_functions.get_article_and_description_column_width",
     ]
 }
