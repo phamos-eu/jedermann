@@ -82,3 +82,14 @@ def get_article_and_description_column_width(items, key, total_both_columns_widt
         column_width["description"] = total_both_columns_width - item_col_lengths[2]
     
     return column_width.get(key, 0)
+
+
+def group_items_by_pallet(items):
+    grouped_items = {}
+    for item in items:
+        pallet_no = item.get('custom_pallet_number')
+        if pallet_no:
+            if pallet_no not in grouped_items:
+                grouped_items[pallet_no] = []
+            grouped_items[pallet_no].append(item)
+    return grouped_items
