@@ -5,9 +5,12 @@ app_description = "Customisation for Jedermann"
 app_email = "support@phamos.eu"
 app_license = "mit"
 required_apps = ["erpnext"]
+app_logo_url = "/assets/jedermann/img/svg/company-logo-white.svg"
 
 doctype_js = {
-    "Sales Invoice": "public/js/sales_invoice.js"
+    "Sales Order": "public/js/sales_order.js",
+    "Sales Invoice": "public/js/sales_invoice.js",
+    "Delivery Note": "public/js/delivery_note.js",
 }
 
 doc_events = {
@@ -65,5 +68,7 @@ jinja = {
     "methods": [
         "jedermann.events.jinja_functions.sort_items",
         "jedermann.events.jinja_functions.get_article_and_description_column_width",
+        "jedermann.events.jinja_functions.sanitize_item_descriptions_and_generate_labels",
+        "jedermann.events.jinja_functions.group_items_by_pallet",
     ]
 }
