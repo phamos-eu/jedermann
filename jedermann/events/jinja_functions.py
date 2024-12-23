@@ -1,3 +1,8 @@
+from bs4 import BeautifulSoup
+from frappe import _
+import frappe
+from frappe.utils import cint
+
 def sort_items(items, sort_by):
     def sort_key(item):
         item = item.as_dict()
@@ -7,6 +12,50 @@ def sort_items(items, sort_by):
             return (item.get('against_sales_order') is not None, item.get('against_sales_order', ''), item['item_code'])
 
     return sorted(items, key=sort_key)
+
+
+def sanitize_item_descriptions_and_generate_labels(items):
+    labels = []
+    for item in items:
+        item = item.as_dict()
+        description = item.get('description', '')
+
+        soup = BeautifulSoup(description, 'html.parser')
+
+        if soup.find():
+            item_description = soup.get_text()
+        else:
+            item_description = description.strip()
+
+        item['sanitize_description'] = item_description.replace('\n', '')
+
+        labels.extend(generate_labels(item))
+
+    return labels
+
+
+def generate_labels(item):
+    labels = []
+    if item.custom_packing_conversion_factor == 1:
+        label_item = item.copy()
+        label_item["label_qty"] = (item.qty)
+        labels.append(label_item)
+        return labels
+
+    full_labels = item.qty // item.custom_packing_conversion_factor
+    remainder = item.qty % item.custom_packing_conversion_factor
+
+    for _ in range(frappe.utils.cint(full_labels)):
+        label_item = item.copy()
+        label_item["label_qty"] = cint(item.custom_packing_conversion_factor)
+        labels.append(label_item)
+
+    if remainder > 0:
+        remainder_item = item.copy()
+        remainder_item["label_qty"] = cint(remainder)
+        labels.append(remainder_item)
+
+    return labels
 
 
 def get_article_and_description_column_width(items, key, total_both_columns_width):
