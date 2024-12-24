@@ -5,7 +5,7 @@ app_description = "Customisation for Jedermann"
 app_email = "support@phamos.eu"
 app_license = "mit"
 required_apps = ["erpnext"]
-app_logo_url = "/assets/jedermann/img/svg/company-logo-white.svg"
+app_logo_url = "/assets/jedermann/img/Jedermann-AG-Favicon.png"
 
 doctype_js = {
     "Sales Order": "public/js/sales_order.js",
