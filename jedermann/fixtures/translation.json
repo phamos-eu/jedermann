@@ -37,5 +37,57 @@
   "name": "lqs4ppbak2",
   "source_text": "Sort by Item Code",
   "translated_text": "Nacht Artikelnummer sortiert"
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "en",
+  "modified": "2024-12-24 12:39:29.292878",
+  "name": "k9jdn8piei",
+  "source_text": "Intern",
+  "translated_text": "Internal"
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "de",
+  "modified": "2024-12-24 12:39:53.644128",
+  "name": "k9r0vinbpb",
+  "source_text": "Intern",
+  "translated_text": "Intern"
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "de",
+  "modified": "2024-12-24 14:02:05.002248",
+  "name": "kf65g90ge2",
+  "source_text": "Pallet Number",
+  "translated_text": "Paletten Nr."
+ },
+ {
+  "context": null,
+  "contributed": 0,
+  "contribution_docname": null,
+  "contribution_status": "",
+  "docstatus": 0,
+  "doctype": "Translation",
+  "language": "de",
+  "modified": "2024-12-24 12:50:14.900153",
+  "name": "kfpp8dfu5s",
+  "source_text": "Batch Number",
+  "translated_text": "Chargen Nummer"
  }
 ]

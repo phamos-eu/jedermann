@@ -52,13 +52,13 @@ fixtures = [
     {
         "dt": "Translation", "filters": [
         [
-            "language", "=", "de"
-        ],
-        [
             "source_text", "in", [
                 "Sort by Sales Order",
                 "Sort by Item Code",
-                "Sorting Option"
+                "Sorting Option",
+                "Batch Number",
+                "Pallet Number",
+                "Intern"
             ]
         ]
     ]}
