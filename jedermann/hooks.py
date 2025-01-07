@@ -7,6 +7,11 @@ app_license = "mit"
 required_apps = ["erpnext"]
 app_logo_url = "/assets/jedermann/img/Jedermann-AG-Favicon.png"
 
+website_context = {
+	"favicon": "/assets/jedermann/img/Jedermann-AG-Favicon.png",
+	"splash_image": "/assets/jedermann/img/Jedermann-AG-Favicon.png",
+}
+
 doctype_js = {
     "Sales Order": "public/js/sales_order.js",
     "Sales Invoice": "public/js/sales_invoice.js",
