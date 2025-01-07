@@ -18,25 +18,15 @@ def sanitize_item_descriptions_and_generate_labels(items):
     labels = []
     for item in items:
         item = item.as_dict()
-        description = item.get('description', '')
-
-        soup = BeautifulSoup(description, 'html.parser')
-
-        if soup.find():
-            item_description = soup.get_text()
-        else:
-            item_description = description.strip()
-
-        item['sanitize_description'] = item_description.replace('\n', '')
-
         labels.extend(generate_labels(item))
 
     return labels
 
 
 def generate_labels(item):
+    # return ig 
     labels = []
-    if item.custom_packing_conversion_factor == 1:
+    if item.custom_packing_conversion_factor == 1 or not (item.custom_packing_uom):
         label_item = item.copy()
         label_item["label_qty"] = (item.qty)
         labels.append(label_item)
