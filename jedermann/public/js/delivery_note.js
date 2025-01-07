@@ -12,7 +12,7 @@ frappe.ui.form.on("Delivery Note", {
 							});
 						}
 						erpnext.utils.map_current_doc({
-							method: "erpnext.selling.doctype.sales_order.sales_order.make_delivery_note",
+							method: "jedermann.events.sales_order.make_delivery_note",
 							args: {
 								for_reserved_stock: 1,
 							},
@@ -30,7 +30,7 @@ frappe.ui.form.on("Delivery Note", {
 							},
 							allow_child_item_selection: true,
 							child_fieldname: "items",
-							child_columns: ["item_code", "qty", "ordered_qty"],
+							child_columns: ["item_code", "qty"],
 						});
 					},
 					__("Get Items From")
