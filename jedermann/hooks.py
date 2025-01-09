@@ -18,6 +18,10 @@ doctype_js = {
     "Delivery Note": "public/js/delivery_note.js",
 }
 
+override_whitelisted_methods = {
+	"erpnext.stock.get_item_details.get_item_details": "jedermann.events.utils.custom_get_item_details"
+}
+
 doc_events = {
     "Sales Invoice": {
         "validate": "jedermann.events.sales_invoice.set_validate_dn_data"
