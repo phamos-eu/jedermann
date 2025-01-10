@@ -80,6 +80,15 @@ def group_items_by_pallet(items):
         pallet_no = item.get('custom_pallet_number')
         if pallet_no:
             if pallet_no not in grouped_items:
-                grouped_items[pallet_no] = []
-            grouped_items[pallet_no].append(item)
+                grouped_items[pallet_no] = {
+                    'items': [],
+                    'total_qty': 0
+                }
+            grouped_items[pallet_no]['items'].append(item)
+            if item.custom_packing_conversion_factor == 1:
+                grouped_items[pallet_no]['total_qty'] += item.get('custom_packing_conversion_factor')
+            else:
+                total_items = item.qty
+                box_capacity = item.custom_packing_conversion_factor or 1
+                grouped_items[pallet_no]['total_qty'] += (total_items + box_capacity - 1) // box_capacity
     return grouped_items
