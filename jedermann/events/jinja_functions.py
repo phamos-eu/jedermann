@@ -80,6 +80,10 @@ def group_items_by_pallet(items):
         pallet_no = item.get('custom_pallet_number')
         if pallet_no:
             if pallet_no not in grouped_items:
-                grouped_items[pallet_no] = []
-            grouped_items[pallet_no].append(item)
+                grouped_items[pallet_no] = {
+                    'items': [],
+                    'total_qty': 0
+                }
+            grouped_items[pallet_no]['items'].append(item)
+            grouped_items[pallet_no]['total_qty'] += item.get('qty', 0)
     return grouped_items
