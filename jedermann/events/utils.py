@@ -11,5 +11,8 @@ def custom_get_item_details(args, doc=None, for_validate=False, overwrite_wareho
             item_details["custom_packing_uom"] = custom_packing_uom
             conversion_factor = get_conversion_factor(item_details.get("item_code"), custom_packing_uom)
             item_details["custom_packing_conversion_factor"] = conversion_factor.get("conversion_factor")
+        else:
+            item_details["custom_packing_uom"] = ""
+            item_details["custom_packing_conversion_factor"] = 1
 
     return item_details
