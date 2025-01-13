@@ -2,6 +2,11 @@
 execute:frappe.delete_doc_if_exists("Custom Field", "Item-custom_default_packing_unit_of_measure")
 execute:frappe.delete_doc_if_exists("Property Setter", "Item-main-naming_rule")
 execute:frappe.delete_doc_if_exists("Property Setter", "Item-main-autoname")
+execute:frappe.delete_doc_if_exists("Print Format", "Product Label from Sales Order")
+execute:frappe.delete_doc_if_exists("Print Format", "Sales Order")
+execute:frappe.delete_doc_if_exists("Print Format", "Pallet Loading list")
+execute:frappe.delete_doc_if_exists("Print Format", "Delivery Note")
+execute:frappe.delete_doc_if_exists("Print Format", "Sales Invoice 1.1")
 
 [post_model_sync]
 # Patches added in this section will be executed after doctypes are migrated
