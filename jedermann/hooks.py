@@ -25,6 +25,9 @@ override_whitelisted_methods = {
 doc_events = {
     "Sales Invoice": {
         "validate": "jedermann.events.sales_invoice.set_validate_dn_data"
+    },
+    "Delivery Note": {
+        "validate": "jedermann.events.delivery_note.set_batches_in_items"
     }
 }
 
