@@ -24,6 +24,8 @@ class CustomDeliveryNote(DeliveryNote):
                             purpose="Material Receipt",
                         )
                         stock_entry.add_comment("Comment", _("Adusting stock for Delivery Note {0}").format(self.name))
+            self.set_actual_qty()
+
         self.set_batches_in_items()
         super().validate()
 
