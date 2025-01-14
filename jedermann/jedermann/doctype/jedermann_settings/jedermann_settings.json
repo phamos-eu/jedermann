@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-14 11:38:10.512302",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enable_batch_automation",
+  "enable_stock_entry_automation_for_batch_item"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "description": "If Enabled then Batches Creation from Custom Batches will be automated in Delivery Note",
+   "fieldname": "enable_batch_automation",
+   "fieldtype": "Check",
+   "label": "Enable Batch Automation"
+  },
+  {
+   "default": "0",
+   "description": "If Enabled then required Stock will be added to relevant warehouse automatically on Delivery Note submission",
+   "fieldname": "enable_stock_entry_automation_for_batch_item",
+   "fieldtype": "Check",
+   "label": "Enable Stock Entry Automation for Batch Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-01-14 11:42:53.688561",
+ "modified_by": "Administrator",
+ "module": "Jedermann",
+ "name": "Jedermann Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
