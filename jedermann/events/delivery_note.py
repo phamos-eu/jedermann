@@ -21,6 +21,4 @@ def get_batch_no_from_custom_batches(item):
         batch.save()
         batch_name = batch.name
 
-    # frappe.msgprint("Batch Automation is WIP for {} ".format(item.custom_batch_number))
-
     return batch_name
