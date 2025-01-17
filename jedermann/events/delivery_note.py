@@ -3,6 +3,7 @@ from frappe import _
 from erpnext.stock.doctype.delivery_note.delivery_note import DeliveryNote
 from erpnext.stock.doctype.batch.batch import get_batch_qty
 from erpnext.stock.doctype.stock_entry.stock_entry_utils import make_stock_entry
+from jedermann.events.utils import validate_and_configure_left_right_pair_packed_item
 
 
 class CustomDeliveryNote(DeliveryNote):
@@ -28,6 +29,7 @@ class CustomDeliveryNote(DeliveryNote):
 
         self.set_batches_in_items()
         super().validate()
+        validate_and_configure_left_right_pair_packed_item(self)
 
     def set_batches_in_items(self):
         enable_batch_automation = frappe.get_cached_value("Jedermann Settings", None, "enable_batch_automation")

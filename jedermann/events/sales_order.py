@@ -6,9 +6,14 @@ from frappe.model.mapper import get_mapped_doc
 from frappe.model.utils import get_fetch_values
 from erpnext.setup.doctype.item_group.item_group import get_item_group_defaults
 from erpnext.stock.doctype.item.item import get_item_defaults
+from jedermann.events.utils import validate_and_configure_left_right_pair_packed_item
 
 
 class CustomSalesOrder(SalesOrder):
+	def validate(self):
+		super().validate()
+		validate_and_configure_left_right_pair_packed_item(self)
+
 	@property
 	def custom_week_number(self):
 		if self.delivery_date:

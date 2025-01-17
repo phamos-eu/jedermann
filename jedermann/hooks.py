@@ -25,11 +25,15 @@ override_whitelisted_methods = {
 doc_events = {
     "Sales Invoice": {
         "validate": "jedermann.events.sales_invoice.set_validate_dn_data"
+    },
+    "Product Bundle": {
+        "validate": "jedermann.events.product_bundle.validate_left_right_pair_item"
     }
 }
 
 override_doctype_class = {
 	"Sales Order": "jedermann.events.sales_order.CustomSalesOrder",
+	"Sales Invoice": "jedermann.events.sales_invoice.CustomSalesInvoice",
     "Delivery Note": "jedermann.events.delivery_note.CustomDeliveryNote"
 }
 
