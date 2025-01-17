@@ -1,3 +1,4 @@
+from frappe import _
 import frappe
 from erpnext.stock.get_item_details import get_item_details, get_conversion_factor
 
@@ -16,3 +17,16 @@ def custom_get_item_details(args, doc=None, for_validate=False, overwrite_wareho
             item_details["custom_packing_conversion_factor"] = 1
 
     return item_details
+
+
+def configure_left_right_pair_packed_item(doc):
+    for d in doc.packed_items:
+        if frappe.get_cached_value("Product Bundle", d.parent_item, "custom_is_left_right_pair_item"):
+            line_item_table = d.parenttype + " Item"
+            parent_item_qty = frappe.db.get_value(line_item_table, d.parent_detail_docname, "qty")
+            uom = frappe.get_cached_value("Product Bundle", d.parent_item, "custom_pair_uom")
+            if not uom:
+                frappe.throw(_("Pair UOM is mandatory for {0} is checked with 'Is Left Right Pair Item'").format(frappe.get_desk_link("Product Bundle", d.parent_item)))
+            if parent_item_qty and uom:
+                d.qty = parent_item_qty/2
+                d.uom = uom
