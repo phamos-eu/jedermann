@@ -33,6 +33,7 @@ doc_events = {
 
 override_doctype_class = {
 	"Sales Order": "jedermann.events.sales_order.CustomSalesOrder",
+	"Sales Invoice": "jedermann.events.sales_invoice.CustomSalesInvoice",
     "Delivery Note": "jedermann.events.delivery_note.CustomDeliveryNote"
 }
 
