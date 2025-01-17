@@ -19,7 +19,12 @@ def custom_get_item_details(args, doc=None, for_validate=False, overwrite_wareho
     return item_details
 
 
-def configure_left_right_pair_packed_item(doc):
+def validate_and_configure_left_right_pair_packed_item(doc):
+    for item in doc.items:
+        if frappe.db.exists("Product Bundle", {"name": item.item_code, "disabled": 0, "custom_is_left_right_pair_item": 1}):
+            if item.qty and item.qty % 2 != 0:
+                frappe.throw(_("idx {0} {1} is checked with 'Is Left Right Pair Item', so qty must be even number.").format(item.idx, frappe.get_desk_link("Product Bundle", item.item_code)))
+
     for d in doc.packed_items:
         if frappe.get_cached_value("Product Bundle", d.parent_item, "custom_is_left_right_pair_item"):
             line_item_table = d.parenttype + " Item"

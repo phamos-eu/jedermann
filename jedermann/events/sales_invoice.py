@@ -1,13 +1,13 @@
 import frappe
 from frappe import _
-from jedermann.events.utils import configure_left_right_pair_packed_item
+from jedermann.events.utils import validate_and_configure_left_right_pair_packed_item
 from erpnext.accounts.doctype.sales_invoice.sales_invoice import SalesInvoice
 
 
 class CustomSalesInvoice(SalesInvoice):
-	def validate(self):
-		super().validate()
-		configure_left_right_pair_packed_item(self)
+    def validate(self):
+        super().validate()
+        validate_and_configure_left_right_pair_packed_item(self)
 
 def set_validate_dn_data(doc, method):
     delivery_notes = list(set([item.delivery_note for item in doc.items if item.delivery_note]))
