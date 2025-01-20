@@ -27,11 +27,9 @@ def validate_and_configure_left_right_pair_packed_item(doc):
 
     for d in doc.packed_items:
         if frappe.get_cached_value("Product Bundle", d.parent_item, "custom_is_left_right_pair_item"):
-            line_item_table = d.parenttype + " Item"
-            parent_item_qty = frappe.db.get_value(line_item_table, d.parent_detail_docname, "qty")
             uom = frappe.get_cached_value("Product Bundle", d.parent_item, "custom_pair_uom")
             if not uom:
                 frappe.throw(_("Pair UOM is mandatory for {0} is checked with 'Is Left Right Pair Item'").format(frappe.get_desk_link("Product Bundle", d.parent_item)))
-            if parent_item_qty and uom:
-                d.qty = parent_item_qty/2
+            if d.get("qty") and uom:
+                d.qty = d.qty /2
                 d.uom = uom
