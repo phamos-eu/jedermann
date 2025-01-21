@@ -8,7 +8,7 @@ from jedermann.events.utils import validate_and_configure_left_right_pair_packed
 
 class CustomDeliveryNote(DeliveryNote):
     def validate(self):
-        if self._action == "submit":
+        if self._action == "submit": # making sure that it run on validate event just before submit
             if not frappe.get_cached_value("Jedermann Settings", None, "enable_stock_entry_automation_for_batch_item"):
                 return
 
