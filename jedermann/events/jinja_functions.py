@@ -1,5 +1,3 @@
-from bs4 import BeautifulSoup
-from frappe import _
 import frappe
 from frappe.utils import cint
 
@@ -24,7 +22,6 @@ def sanitize_item_descriptions_and_generate_labels(items):
 
 
 def generate_labels(item):
-    # return ig 
     labels = []
     if item.custom_packing_conversion_factor == 1 or not (item.custom_packing_uom):
         label_item = item.copy()
