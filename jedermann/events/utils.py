@@ -33,3 +33,14 @@ def validate_and_configure_left_right_pair_packed_item(doc):
             if d.get("qty") and uom:
                 d.qty = d.qty /2
                 d.uom = uom
+
+
+        item_doc = frappe.get_cached_doc("Item", d.parent_item)
+        customer_item_code = item_doc.get("customer_items", {"customer_name": doc.customer})
+        if customer_item_code:
+            d.custom_customer_item_code = customer_item_code[0].ref_code
+        else:
+            customer_group = frappe.get_cached_value("Customer", doc.customer, "customer_group")
+            customer_group_item_code = item_doc.get("customer_items", {"customer_group": customer_group})
+            if customer_group_item_code and not customer_group_item_code[0].customer_name:
+                d.custom_customer_item_code = customer_group_item_code[0].ref_code
