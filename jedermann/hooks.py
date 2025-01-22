@@ -82,7 +82,7 @@ jinja = {
     "methods": [
         "jedermann.events.jinja_functions.sort_items",
         "jedermann.events.jinja_functions.get_article_and_description_column_width",
-        "jedermann.events.jinja_functions.sanitize_item_descriptions_and_generate_labels",
+        "jedermann.events.jinja_functions.get_product_labels",
         "jedermann.events.jinja_functions.group_items_by_pallet",
     ]
 }

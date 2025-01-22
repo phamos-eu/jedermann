@@ -12,11 +12,18 @@ def sort_items(items, sort_by):
     return sorted(items, key=sort_key)
 
 
-def sanitize_item_descriptions_and_generate_labels(items):
+def get_product_labels(doc):
     labels = []
-    for item in items:
-        item = item.as_dict()
-        labels.extend(generate_labels(item))
+    for item in doc.items:
+        if frappe.db.exists("Product Bundle", {"name": item.item_code, "disabled": 0, "custom_is_left_right_pair_item": 1}):
+            for packed_item in doc.packed_items:
+                packed_item = packed_item.as_dict()
+                packed_item["uom"] = item.get("uom")
+                packed_item["customer_item_code"] = packed_item.get("custom_customer_item_code")
+                labels.extend(generate_labels(packed_item))          
+        else:
+            item = item.as_dict()
+            labels.extend(generate_labels(item))
 
     return labels
 
