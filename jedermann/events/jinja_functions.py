@@ -1,5 +1,7 @@
 import frappe
 from frappe.utils import cint
+from jedermann.events.utils import is_product_bundle
+
 
 def sort_items(items, sort_by):
     def sort_key(item):
@@ -15,7 +17,7 @@ def sort_items(items, sort_by):
 def get_product_labels(doc):
     labels = []
     for item in doc.items:
-        if frappe.db.exists("Product Bundle", {"name": item.item_code, "disabled": 0, "custom_is_left_right_pair_item": 1}):
+        if is_product_bundle(item.item_code):
             for packed_item in doc.packed_items:
                 packed_item = packed_item.as_dict()
                 packed_item["uom"] = item.get("uom")
