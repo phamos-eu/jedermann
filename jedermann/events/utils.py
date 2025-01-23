@@ -21,7 +21,7 @@ def custom_get_item_details(args, doc=None, for_validate=False, overwrite_wareho
 
 def validate_and_configure_left_right_pair_packed_item(doc):
     for item in doc.items:
-        if frappe.db.exists("Product Bundle", {"name": item.item_code, "disabled": 0, "custom_is_left_right_pair_item": 1}):
+        if is_product_bundle(item.item_code):
             if item.qty and item.qty % 2 != 0:
                 frappe.throw(_("Idx: {0}, {1} is checked with 'Is Left Right Pair Item', so qty must be even number.").format(item.idx, frappe.get_desk_link("Product Bundle", item.item_code)))
 
@@ -35,7 +35,7 @@ def validate_and_configure_left_right_pair_packed_item(doc):
                 d.uom = uom
 
 
-        item_doc = frappe.get_cached_doc("Item", d.parent_item)
+        item_doc = frappe.get_cached_doc("Item", d.item_code)
         customer_item_code = item_doc.get("customer_items", {"customer_name": doc.customer})
         if customer_item_code:
             d.custom_customer_item_code = customer_item_code[0].ref_code
@@ -44,3 +44,7 @@ def validate_and_configure_left_right_pair_packed_item(doc):
             customer_group_item_code = item_doc.get("customer_items", {"customer_group": customer_group})
             if customer_group_item_code and not customer_group_item_code[0].customer_name:
                 d.custom_customer_item_code = customer_group_item_code[0].ref_code
+
+
+def is_product_bundle(item_code):
+    return frappe.db.exists("Product Bundle", {"name": item_code, "disabled": 0, "custom_is_left_right_pair_item": 1})
