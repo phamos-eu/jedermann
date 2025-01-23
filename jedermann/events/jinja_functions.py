@@ -82,21 +82,35 @@ def get_article_and_description_column_width(items, key, total_both_columns_widt
     return column_width.get(key, 0)
 
 
-def group_items_by_pallet(items):
+def group_items_by_pallet(doc):
     grouped_items = {}
-    for item in items:
-        pallet_no = item.get('custom_pallet_number')
-        if pallet_no:
-            if pallet_no not in grouped_items:
-                grouped_items[pallet_no] = {
-                    'items': [],
-                    'total_qty': 0
-                }
-            grouped_items[pallet_no]['items'].append(item)
-            if item.custom_packing_conversion_factor == 1:
-                grouped_items[pallet_no]['total_qty'] += item.get('custom_packing_conversion_factor')
-            else:
-                total_items = item.qty
-                box_capacity = item.custom_packing_conversion_factor or 1
-                grouped_items[pallet_no]['total_qty'] += (total_items + box_capacity - 1) // box_capacity
+    for item in doc.items:
+        if is_product_bundle(item.item_code):
+            pass
+            for packed_item in doc.packed_items:
+                packed_item = packed_item.as_dict()
+                packed_item["custom_packing_conversion_factor"] = item.get("custom_packing_conversion_factor")
+                packed_item["custom_packing_uom"] = item.get("custom_packing_uom")
+                group_item_by_pallet(packed_item, grouped_items)
+
+        else:
+            group_item_by_pallet(item, grouped_items)
+
     return grouped_items
+
+
+def group_item_by_pallet(item, grouped_items):
+    pallet_no = item.get('custom_pallet_number')
+    if pallet_no:
+        if pallet_no not in grouped_items:
+            grouped_items[pallet_no] = {
+                'items': [],
+                'total_qty': 0
+            }
+        grouped_items[pallet_no]['items'].append(item)
+        if item.custom_packing_conversion_factor == 1:
+            grouped_items[pallet_no]['total_qty'] += item.get('custom_packing_conversion_factor')
+        else:
+            total_items = item.qty
+            box_capacity = item.custom_packing_conversion_factor or 1
+            grouped_items[pallet_no]['total_qty'] += (total_items + box_capacity - 1) // box_capacity
