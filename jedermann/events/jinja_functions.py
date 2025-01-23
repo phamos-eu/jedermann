@@ -21,6 +21,8 @@ def get_product_labels(doc):
             for packed_item in doc.packed_items:
                 packed_item = packed_item.as_dict()
                 packed_item["uom"] = item.get("uom")
+                packed_item["custom_packing_conversion_factor"] = item.get("custom_packing_conversion_factor")
+                packed_item["custom_packing_uom"] = item.get("custom_packing_uom")
                 packed_item["customer_item_code"] = packed_item.get("custom_customer_item_code")
                 labels.extend(generate_labels(packed_item))          
         else:
