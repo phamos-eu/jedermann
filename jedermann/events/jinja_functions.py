@@ -91,6 +91,7 @@ def group_items_by_pallet(doc):
                 packed_item = packed_item.as_dict()
                 packed_item["custom_packing_conversion_factor"] = item.get("custom_packing_conversion_factor")
                 packed_item["custom_packing_uom"] = item.get("custom_packing_uom")
+                packed_item["against_sales_order"] = item.get("against_sales_order")
                 packed_item["customer_item_code"] = packed_item.get("custom_customer_item_code")
                 group_item_by_pallet(packed_item, grouped_items)
 
