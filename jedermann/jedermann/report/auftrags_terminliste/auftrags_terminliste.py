@@ -80,7 +80,7 @@ def get_data(filters):
 	SalesOrder = frappe.qb.DocType("Sales Order")
 	SalesOrderItem = frappe.qb.DocType("Sales Order Item")
 	ItemCustomerDetail = frappe.qb.DocType("Item Customer Detail")
-	
+
 	data = (
 		frappe.qb.from_(SalesOrder)
 		.inner_join(SalesOrderItem)
