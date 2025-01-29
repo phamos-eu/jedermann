@@ -24,7 +24,7 @@
             <tr>
                 <td width="49%" style="border-right:2px solid black;">
                     <div>
-                        <b>{%= __("Lade-Liste") %}</b><br>
+                        <b>{%= __("Auftrags-terminliste") %}</b><br>
                         {%= __("Jedermann AG") %}<br>
                         {%= __("Kunde") %}: {%= filters.customer %}
                     </div>
@@ -71,8 +71,8 @@
                 <td style="word-wrap:break-word;"><div style="width:40px">{%= data[i].po_no%}</div></td>
                 <td style="word-wrap:break-word;"><div style="width:70px">{%= data[i].intern%}</div></td>
                 <td style="word-wrap:break-word;"><div style="width:105px">
-                    {% if data[i].ref_code %}
-                        <b>{%= data[i].ref_code %}</b><br>
+                    {% if data[i].customer_item_code %}
+                        <b>{%= data[i].customer_item_code %}</b><br>
                     {% endif %}
                     {%= data[i].item_code%}
                 </div></td>
