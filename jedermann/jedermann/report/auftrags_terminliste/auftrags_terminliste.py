@@ -39,8 +39,8 @@ def get_column():
 			"width": 120
 		},
 		{
-			"label": "Customer Red",
-			"fieldname": "ref_code",
+			"label": "Customer Item Code",
+			"fieldname": "customer_item_code",
 			"fieldtype": "Data",
 			"width": 120
 		},
@@ -79,21 +79,18 @@ def get_column():
 def get_data(filters):
 	SalesOrder = frappe.qb.DocType("Sales Order")
 	SalesOrderItem = frappe.qb.DocType("Sales Order Item")
-	ItemCustomerDetail = frappe.qb.DocType("Item Customer Detail")
 
 	data = (
 		frappe.qb.from_(SalesOrder)
 		.inner_join(SalesOrderItem)
 		.on(SalesOrderItem.parent == SalesOrder.name)
-		.left_join(ItemCustomerDetail)
-		.on(ItemCustomerDetail.parent == SalesOrderItem.item_name)
 		.select(
 			SalesOrder.po_no,
 			SalesOrder.name.as_("intern"),
 			SalesOrder.delivery_date,
 			SalesOrderItem.item_name,
 			SalesOrderItem.item_code,
-			ItemCustomerDetail.ref_code,
+			SalesOrderItem.customer_item_code,
 			SalesOrderItem.qty.as_("bm"),
 			SalesOrderItem.delivered_qty.as_("gm"),
 			(SalesOrderItem.qty - SalesOrderItem.delivered_qty).as_("om")
@@ -103,7 +100,7 @@ def get_data(filters):
 		.where((SalesOrderItem.qty - SalesOrderItem.delivered_qty) > 0)
 		.orderby(SalesOrder.creation, order=frappe.qb.asc)
 		.orderby(SalesOrder.name, order=frappe.qb.asc)
-		.run(as_dict=1)
+		.run(as_dict=1, debug=1)
 	)
 
 	return data
