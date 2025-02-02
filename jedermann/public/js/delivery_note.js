@@ -30,7 +30,7 @@ frappe.ui.form.on("Delivery Note", {
 							},
 							allow_child_item_selection: true,
 							child_fieldname: "items",
-							child_columns: ["item_code", "qty"],
+							child_columns: ["item_code", "qty", "delivered_qty"],
 						});
 					},
 					__("Get Items From")
