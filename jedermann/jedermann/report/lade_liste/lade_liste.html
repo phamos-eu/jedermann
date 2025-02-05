@@ -1,0 +1,94 @@
+<style>
+    .print-format {
+        font-size: 3.2mm;
+        padding-left: 6mm;
+        padding-right: 6mm;
+        margin-left: 0mm;
+        margin-right: 0mm;
+        margin-top: 33mm;
+        margin-bottom: 1mm;
+    }
+
+    .page-number {
+        visibility: hidden;
+    }
+
+    .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+        border: 2px solid black !important;
+    }
+</style>
+
+<div id="header-html">
+    <div >
+        <table width="100%" style="border: 2px solid black;">
+            <tr>
+                <td width="49%" style="border-right:2px solid black;">
+                    <div>
+                        <b>{%= __("Lade-Liste") %}</b><br>
+                        {%= __("Jedermann AG") %}<br>
+                        {%= __("Kunde") %}: {%= filters.customer %}
+                    </div>
+                </td>
+                <td width="23%"style="border-right:2px solid black;">
+                    <div>
+                        {%= __("BM = Bestell - Menge") %}<br>
+                        {%= __("GM = Gelieferte - Menge") %}<br>
+                        {%= __("OM = Offene - Menge") %}<br>
+                    </div>
+                </td>
+                <td width="28%" style="border-right:2px solid black;">
+                    <div>
+                        {{ __("Datum") }}: {%= moment(frappe.datetime.now_date()).format("DD.MM.YYYY") %}<br>
+                        <p class="visible-pdf">
+                            {{ __("Seite {0}/{1}", [`<span class="page"></span>`, `<span class="topage"></span>`]) }}
+                        </p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td width="3%">{%= __("LS") %}</td>
+                <td width="3%">{%= __("vst.") %}</td>
+                <td width="10%">{%= __("Menge") %}</td>
+                <td width="8%">{%= __("Palette") %}</td>
+                <td width="8%">{%= __("Auftrag") %}</td>
+                <td width="11%">{%= __("Intern") %}</td>
+                <td width="14%">{%= __("Artikel-Nr.") %}</td>
+                <td width="19%">{%= __("Charge") %}</td>
+                <td width="5%">{%= __("BM") %}</td>
+                <td width="5%">{%= __("GM") %}</td>
+                <td width="5%">{%= __("OM") %}</td>
+                <td width="5%">{%= __("Lief.Termin") %}</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for(var i=0, l=data.length; i<l; i++) { %}
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="word-wrap:break-word;"><div style="width:40px">{%= data[i].po_no%}</div></td>
+                <td style="word-wrap:break-word;"><div style="width:70px">{%= data[i].intern%}</div></td>
+                <td style="word-wrap:break-word;"><div style="width:105px">
+                    {% if data[i].customer_item_code %}
+                        <b>{%= data[i].customer_item_code %}</b><br>
+                    {% endif %}
+                    {%= data[i].item_code%}
+                </div></td>
+                <td></td>
+                <td>{%= data[i].bm%}</td>
+                <td>{%= data[i].gm%}</td>
+                <td>{%= data[i].om%}</td>
+                <td>{%= moment(data[i].delivery_date).format("DD.MM.YY")%}</td>
+            </tr>
+            {% } %}
+        </tbody>
+    </table>
+</div>
