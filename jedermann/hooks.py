@@ -63,6 +63,11 @@ fixtures = [
     {
         "dt": "Print Settings"
     },
+    {"dt": "Property Setter", "filters": [
+        [
+            "module", "=", "Jedermann"
+        ]
+    ]},
     {
         "dt": "Translation", "filters": [
         [
