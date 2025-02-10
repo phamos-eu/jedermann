@@ -1,7 +1,7 @@
 [
  {
   "align": "Left",
-  "content": "",
+  "content": "<div style=\"text-align: left;\">\n<img src=\"/files/Jedermann_Logo_mUt_NEU_resized.png\" alt=\"Standard 1.1\" height=\"\" style=\"height: px;\">\n</div>",
   "disabled": 0,
   "docstatus": 0,
   "doctype": "Letter Head",
@@ -20,6 +20,6 @@
   "letter_head_name": "Standard 1.1",
   "modified": "2024-12-05 11:27:32.711398",
   "name": "Standard 1.1",
-  "source": "HTML"
+  "source": "Image"
  }
 ]

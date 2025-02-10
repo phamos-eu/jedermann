@@ -8,5 +8,6 @@ execute:frappe.delete_doc_if_exists("Print Format", "Pallet Loading list")
 execute:frappe.delete_doc_if_exists("Print Format", "Delivery Note")
 execute:frappe.delete_doc_if_exists("Print Format", "Sales Invoice 1.1")
 execute:frappe.delete_doc_if_exists("Property Setter", {"doc_type": "Item", "is_system_generated":0})
+execute:frappe.delete_doc_if_exists("Custom Field", "Purchase Order-custom_supplier_qoute_reference")
 [post_model_sync]
 # Patches added in this section will be executed after doctypes are migrated
