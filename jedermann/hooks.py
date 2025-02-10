@@ -77,7 +77,8 @@ fixtures = [
                 "Sorting Option",
                 "Batch Number",
                 "Pallet Number",
-                "Intern"
+                "Intern",
+                "Supplier Quote Reference"
             ]
         ]
     ]}
